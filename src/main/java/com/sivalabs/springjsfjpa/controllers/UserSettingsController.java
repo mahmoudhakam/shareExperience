@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import com.sivalabs.springjsfjpa.config.SpringApplicationContext;
 import com.sivalabs.springjsfjpa.entities.User;
+import com.sivalabs.springjsfjpa.managedBeans.BaseBean;
 import com.sivalabs.springjsfjpa.services.UserService;
 import com.sivalabs.springjsfjpa.utils.JSFUtils;
 import com.sivalabs.springjsfjpa.web.view.Theme;
@@ -22,10 +23,10 @@ import com.sivalabs.springjsfjpa.web.view.Theme;
  */
 @ManagedBean
 @SessionScoped
-public class UserSettingsController implements Serializable
+public class UserSettingsController extends BaseBean implements Serializable
 {
 	private static final long serialVersionUID = 1L;
-	private static Logger logger = LoggerFactory.getLogger(UserSettingsController.class);
+	private static Logger logger = LoggerFactory.getLogger(getCurrentClassName());
 	
 	private UserService userService;
 	

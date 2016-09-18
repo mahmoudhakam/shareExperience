@@ -10,10 +10,14 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
 import com.sivalabs.springjsfjpa.config.SpringApplicationContext;
 import com.sivalabs.springjsfjpa.entities.User;
+import com.sivalabs.springjsfjpa.managedBeans.BaseBean;
 import com.sivalabs.springjsfjpa.services.UserService;
 import com.sivalabs.springjsfjpa.utils.JSFUtils;
+import com.sivalabs.springjsfjpa.utils.LoggerUtil;
 import com.sivalabs.springjsfjpa.web.view.ChangePassword;
 
 /**
@@ -22,34 +26,34 @@ import com.sivalabs.springjsfjpa.web.view.ChangePassword;
  */
 @ManagedBean
 @SessionScoped
-public class UserController implements Serializable
-{
+public class UserController extends BaseBean implements Serializable {
+	private static Logger logger = LoggerUtil.getLoggerInstance(getCurrentClassName());
 	private static final long serialVersionUID = 1L;
 
 	private UserService userService;
-	
+
 	private User loginUser;
 	private boolean userLoggedin;
 	private ChangePassword changePwd = new ChangePassword();
-	
+
 	public UserController() {
 		loginUser = new User();
 		loginUser.setEmail("admin@gmail.com");
 		loginUser.setPassword("admin");
 	}
-	
+
 	public UserService getUserService() {
-        if(userService == null){
-            this.userService = SpringApplicationContext.getBean(UserService.class);
-        }
-	    return userService;
-    }
-	
-	public String doLogin() 
-	{
+		if (userService == null) {
+			this.userService = SpringApplicationContext.getBean(UserService.class);
+		}
+		return userService;
+	}
+
+	public String doLogin() {
+		logger.info("-- inside do login --");
 		User user = getUserService().login(loginUser.getEmail(), loginUser.getPassword());
-		if(user != null)
-		{
+		logger.info("-- inside do login with user:" + user.getEmail() + " and password:" + user.getPassword());
+		if (user != null) {
 			JSFUtils.setLoggedinUser(user);
 			loginUser = user;
 			setUserLoggedin(true);
@@ -58,17 +62,14 @@ public class UserController implements Serializable
 		JSFUtils.addErrorMsg("Invalid EmailId and Password");
 		return null;
 	}
-	
-	
-	public String logout()
-	{
+
+	public String logout() {
 		FacesContext context = FacesContext.getCurrentInstance();
 		HttpSession session = (HttpSession) context.getExternalContext().getSession(true);
 		session.invalidate();
 		return "login.jsf?faces-redirect=true";
 	}
-	
-	
+
 	public User getLoginUser() {
 		return loginUser;
 	}
@@ -77,14 +78,14 @@ public class UserController implements Serializable
 		this.loginUser = loginUser;
 	}
 
-	public boolean isUserLoggedin()
-	{
+	public boolean isUserLoggedin() {
 		return userLoggedin;
 	}
-	public void setUserLoggedin(boolean userLoggedin)
-	{
+
+	public void setUserLoggedin(boolean userLoggedin) {
 		this.userLoggedin = userLoggedin;
 	}
+
 	public ChangePassword getChangePwd() {
 		return changePwd;
 	}
@@ -93,5 +94,4 @@ public class UserController implements Serializable
 		this.changePwd = changePwd;
 	}
 
-	
 }

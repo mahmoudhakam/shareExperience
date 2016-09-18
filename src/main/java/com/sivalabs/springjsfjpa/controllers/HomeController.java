@@ -6,6 +6,10 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import org.apache.log4j.Logger;
+
+import com.sivalabs.springjsfjpa.managedBeans.BaseBean;
+import com.sivalabs.springjsfjpa.utils.LoggerUtil;
 
 /**
  * @author Siva
@@ -13,19 +17,16 @@ import javax.faces.bean.ViewScoped;
  */
 @ManagedBean
 @ViewScoped
-public class HomeController implements Serializable 
-{
+public class HomeController extends BaseBean implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
-	
-	public HomeController()
-	{
+	private static Logger logger = LoggerUtil.getLoggerInstance(getCurrentClassName());
+
+	public HomeController() {
 	}
-	
+
 	@PostConstruct
-	void init()
-	{
-		
+	void init() {
+
 	}
-	
+
 }
