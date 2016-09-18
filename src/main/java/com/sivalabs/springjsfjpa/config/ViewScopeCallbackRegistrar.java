@@ -11,7 +11,7 @@ import javax.faces.event.SystemEvent;
 import javax.faces.event.ViewMapListener;
 /**
  * From : http://blog.harezmi.com.tr/spring-view-scope-for-jsf-2-users/
- * @author K. Siva Prasad Reddy
+ * @author kesho
  * Date : 01-Jul-2013
  */
 public class ViewScopeCallbackRegistrar implements ViewMapListener

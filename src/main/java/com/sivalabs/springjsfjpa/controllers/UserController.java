@@ -21,7 +21,7 @@ import com.sivalabs.springjsfjpa.utils.LoggerUtil;
 import com.sivalabs.springjsfjpa.web.view.ChangePassword;
 
 /**
- * @author Siva
+ * @author kesho
  *
  */
 @ManagedBean

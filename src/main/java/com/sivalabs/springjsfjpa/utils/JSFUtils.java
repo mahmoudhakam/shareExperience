@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
 import com.sivalabs.springjsfjpa.entities.User;
 
 /**
- * @author Siva
+ * @author kesho
  *
  */
 public final class JSFUtils {

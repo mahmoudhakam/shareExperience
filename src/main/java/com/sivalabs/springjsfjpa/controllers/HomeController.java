@@ -12,7 +12,7 @@ import com.sivalabs.springjsfjpa.managedBeans.BaseBean;
 import com.sivalabs.springjsfjpa.utils.LoggerUtil;
 
 /**
- * @author Siva
+ * @author kesho
  *
  */
 @ManagedBean

@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.sivalabs.springjsfjpa.entities.User;
 
 /**
- * @author siva
+ * @author kesho
  *
  */
 public interface UserRepository extends JpaRepository<User, Integer> {

@@ -3,7 +3,7 @@ package com.sivalabs.springjsfjpa.web.view;
 import java.io.Serializable;
 
 /**
- * @author Siva
+ * @author kesho
  *
  */
 public class ChangePassword implements Serializable

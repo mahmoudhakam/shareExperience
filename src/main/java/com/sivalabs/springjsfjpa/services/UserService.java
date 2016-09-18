@@ -10,7 +10,7 @@ import com.sivalabs.springjsfjpa.entities.User;
 import com.sivalabs.springjsfjpa.repositories.UserRepository;
 
 /**
- * @author Siva
+ * @author kesho
  *
  */
 @Service

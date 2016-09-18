@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.sivalabs.springjsfjpa.entities.User;
 
 /**
- * @author Siva
+ * @author kesho
  *
  */
 public class AuthenticationFilter implements Filter
