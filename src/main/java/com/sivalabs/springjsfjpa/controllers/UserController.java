@@ -50,7 +50,6 @@ public class UserController extends BaseBean implements Serializable {
 	}
 
 	public String doLogin() {
-		logger.info("-- inside do login --");
 		User user = getUserService().login(loginUser.getEmail(), loginUser.getPassword());
 		logger.info("-- inside do login with user:" + user.getEmail() + " and password:" + user.getPassword());
 		if (user != null) {

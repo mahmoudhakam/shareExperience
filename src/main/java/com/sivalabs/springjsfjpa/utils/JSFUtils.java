@@ -12,38 +12,34 @@ import com.sivalabs.springjsfjpa.entities.User;
  *
  */
 public final class JSFUtils {
-	
-	public static void setLoggedinUser(User user)
-	{
+
+	public static void setLoggedinUser(User user) {
 		FacesContext context = FacesContext.getCurrentInstance();
 		HttpSession session = (HttpSession) context.getExternalContext().getSession(true);
 		session.setAttribute("LOGIN_USER", user);
 	}
-	
-	public static User getLoggedinUser()
-	{
+
+	public static User getLoggedinUser() {
 		FacesContext context = FacesContext.getCurrentInstance();
 		HttpSession session = (HttpSession) context.getExternalContext().getSession(true);
 		return (User) session.getAttribute("LOGIN_USER");
 	}
-	
+
 	public static void addInfoMsg(String msg) {
-		FacesContext.getCurrentInstance().addMessage(null, 
-					new FacesMessage(FacesMessage.SEVERITY_INFO, msg, msg));
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, msg, msg));
 	}
-	
+
 	public static void addErrorMsg(String msg) {
-		FacesContext.getCurrentInstance().addMessage(null, 
-				new FacesMessage(FacesMessage.SEVERITY_ERROR, msg, msg));
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, msg, msg));
 	}
-	
+
 	public static void addInfoMsg(String componentId, String msg) {
-		FacesContext.getCurrentInstance().addMessage(componentId, 
-					new FacesMessage(FacesMessage.SEVERITY_INFO, msg, msg));
+		FacesContext.getCurrentInstance().addMessage(componentId,
+				new FacesMessage(FacesMessage.SEVERITY_INFO, msg, msg));
 	}
-	
+
 	public static void addErrorMsg(String componentId, String msg) {
-		FacesContext.getCurrentInstance().addMessage(componentId, 
+		FacesContext.getCurrentInstance().addMessage(componentId,
 				new FacesMessage(FacesMessage.SEVERITY_ERROR, msg, msg));
 	}
 }
